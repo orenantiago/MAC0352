@@ -124,9 +124,6 @@ int main (int argc, char **argv) {
                 perror("accept :(\n");
                 exit(5);
         }
-
-        write(connfd, "oi", strlen("oi"));
-
         
         /* Agora o servidor precisa tratar este cliente de forma
          * separada. Para isto é criado um processo filho usando a
@@ -141,7 +138,6 @@ int main (int argc, char **argv) {
         if ( (childpid = fork()) == 0) {
             /**** PROCESSO FILHO ****/
             printf("[Uma conexao aberta]\n");
-            write(connfd, "ahoy", strlen("ahoy"));
 
             /* Já que está no processo filho, não precisa mais do socket
              * listenfd. Só o processo pai precisa deste socket. */
@@ -204,13 +200,6 @@ int main (int argc, char **argv) {
             char path[] = "./users/";
             strcat(path, username);
             int result = mkdir(path, 0777);
-
-            // if(result == -1){
-            //     write(connfd, "Usuário já existente no servidor FTP", strlen("Usuário já existente no servidor FTP"));
-            // }
-            // else{
-            //     write(connfd, "Usuário ", strlen("Novo usuário criado!"));
-            // }
 
             while (write(connfd, "<SERVIDOR FTP>: ", strlen("<SERVIDOR FTP>: ")) && (n=read(connfd, recvline, MAXLINE)) > 0) {
                 recvline[n]=0;
