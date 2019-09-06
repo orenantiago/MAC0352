@@ -48,6 +48,12 @@
 #define MAXUSERNAME 100
 #define MAXPASSWORD 100
 
+char** split_buffer(char* buffer) {
+    char* command [2];
+    
+    fputs(buffer, stdout);
+}
+
 int main (int argc, char **argv) {
     /* Os sockets. Um que será o socket que vai escutar pelas conexões
     * e o outro que vai ser o socket específico de cada conexão */
@@ -179,37 +185,53 @@ int main (int argc, char **argv) {
             //10.
 
             //usuários com no máximo 100 caracteres
-            char insert_username[] = "Insira seu usuário: ";
-            write(connfd, insert_username, strlen(insert_username));
-            char username_tmp[MAXUSERNAME];
-            n = read(connfd, username_tmp, MAXUSERNAME);
-            fputs(username_tmp, stdout);
-            char username[MAXUSERNAME];            
-            strncpy(username, username_tmp, strlen(username_tmp) - 2);         
+            char buffer[100];
+            char *known_commands[]= {"USER"};
+            char **command;
+            int n;
+            write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
+            while(n = read(connfd, buffer, MAXLINE) > 0) {
+                command = split_buffer(buffer);
+                // fputs(buffer, stdout);
+            }
+            // write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
+            // while(n = read(connfd, buffer, 100) > 0) {
+            //     fputs(buffer, stdout);
+            // }
+            // }
+            // login(&connfd);
+            // char username_tmp[MAXUSERNAME];
+            // for(;;) {
+            //     if(recv(connfd, username_tmp, MAXUSERNAME, 0) != -1) {
+            //         fputs(username_tmp, stdout);
+            //     }
+            // }
+            // char username[MAXUSERNAME];            
+            // strncpy(username, username_tmp, strlen(username_tmp) - 2);         
 
             //senhas com no máximo 100 caracteres
-            char insert_password[] = "Insira sua senha: ";
-            write(connfd, insert_password, strlen(insert_password));
-            char password_tmp[MAXPASSWORD];
-            n = read(connfd, password_tmp, MAXPASSWORD);
-            fputs(password_tmp, stdout);
-            char password[MAXUSERNAME];            
-            strncpy(password, password_tmp, strlen(password_tmp) - 2);
+            // char insert_password[] = "Insira sua senha: ";
+            // write(connfd, insert_password, strlen(insert_password));
+            // char password_tmp[MAXPASSWORD];
+            // n = read(connfd, password_tmp, MAXPASSWORD);
+            // fputs(password_tmp, stdout);
+            // char password[MAXUSERNAME];            
+            // strncpy(password, password_tmp, strlen(password_tmp) - 2);
 
             //se o username tiver um diretório, abrimos ele, caso contrário, criamos um
-            char path[] = "./users/";
-            strcat(path, username);
-            int result = mkdir(path, 0777);
+            // char path[] = "./users/";
+            // strcat(path, username);
+            // int result = mkdir(path, 0777);
 
-            while (write(connfd, "<SERVIDOR FTP>: ", strlen("<SERVIDOR FTP>: ")) && (n=read(connfd, recvline, MAXLINE)) > 0) {
-                recvline[n]=0;
-                printf("[Cliente conectado no processo filho %d enviou:] ",getpid());
-                if ((fputs(recvline,stdout)) == EOF) {
-                    perror("fputs :( \n");
-                    exit(6);
-                }
-                write(connfd, recvline, strlen(recvline));
-            }
+            // while (write(connfd, "<SERVIDOR FTP>: ", strlen("<SERVIDOR FTP>: ")) && (n=read(connfd, recvline, MAXLINE)) > 0) {
+            //     recvline[n]=0;
+            //     printf("[Cliente conectado no processo filho %d enviou:] ",getpid());
+            //     if ((fputs(recvline,stdout)) == EOF) {
+            //         perror("fputs :( \n");
+            //         exit(6);
+            //     }
+            //     write(connfd, recvline, strlen(recvline));
+            // }
             /* ========================================================= */
             /* ========================================================= */
             /*                                 EP1 FIM                                    */
