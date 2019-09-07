@@ -40,6 +40,7 @@
 #include <time.h>
 #include <unistd.h>
 #include <sys/stat.h>
+#include <string.h>
 
 
 #define LISTENQ 1
@@ -48,10 +49,12 @@
 #define MAXUSERNAME 100
 #define MAXPASSWORD 100
 
-char** split_buffer(char* buffer) {
+char** split_buffer(char buffer[]) {
     char* command [2];
-    
-    fputs(buffer, stdout);
+    command[0] = strtok(buffer," ");
+    command[1] = strtok(NULL," ");
+    printf("%s\n",command[0]);
+    printf("%s\n",command[1]);
 }
 
 int main (int argc, char **argv) {
@@ -185,14 +188,15 @@ int main (int argc, char **argv) {
             //10.
 
             //usuários com no máximo 100 caracteres
-            char buffer[100];
+            char buffer[MAXDATASIZE];
             char *known_commands[]= {"USER"};
+            char user[MAXUSERNAME], password[MAXPASSWORD];
             char **command;
             int n;
             write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             while(n = read(connfd, buffer, MAXLINE) > 0) {
                 command = split_buffer(buffer);
-                // fputs(buffer, stdout);
+                
             }
             // write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             // while(n = read(connfd, buffer, 100) > 0) {
