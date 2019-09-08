@@ -41,6 +41,8 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <string.h>
+#include <dirent.h> 
+
 
 #define LISTENQ 1
 #define MAXDATASIZE 100
@@ -50,7 +52,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PASV"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST"};
 typedef struct user {
     char *name;
     char *password;
@@ -110,10 +112,10 @@ int check_command(char *command) {
     return -1;
 }
 
-int pasv(connection *current_connection) {
-}
+// int pasv(connection *current_connection) {
+// }
 
-char *interpret(connection *current_connection, char *command[]) {
+char *interpret(connection *current_connection, char *command[], int connfd) {
     int command_code = check_command(command[0]);
     command[1][strcspn(command[1], "\r\n")] = 0;
 
@@ -122,6 +124,9 @@ char *interpret(connection *current_connection, char *command[]) {
 
     int connfd_data;
     struct sockaddr_in servaddr;
+    struct dirent *de;  
+    DIR *dr;
+
 
     switch (command_code)
     {
@@ -173,7 +178,26 @@ char *interpret(connection *current_connection, char *command[]) {
         listen(connfd_data, 5);
         return message;
         // return "227 passive mode (127,0,0,1,100,240)\n";
+    case 4:
+        // printf("%d\n", connfd);
+        // write(connfd, "150 diretório\n", strlen("150 diretório\n"));
+        dr = opendir("."); 
+        if (dr == NULL){ 
+            printf("Não foi possível abrir o diretório"); 
+            return 0; 
+        } 
+        de = readdir(dr);
+        while (de != NULL){
+            //para não listar o mesmo diretório ou o diretório pai
+            if (strcmp(de->d_name, ".") != 0 && strcmp(de->d_name, "..") != 0){
+                // write(connfd, de->d_name, strlen(de->d_name));
+                dprintf(connfd, "%s %s", de->d_name, " "); 
+            }                
+            de = readdir(dr);
+        }
+        closedir(dr);     
 
+        return "226 e ai xuxu\n";
 
     case -1:
         return "502 comando nao implementado.\n";
@@ -323,7 +347,7 @@ int main (int argc, char **argv) {
             write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             while(n = read(connfd, buffer, MAXLINE) > 0) {
                 command = split_buffer(buffer);
-                char *command_return = interpret(current_connection, command);
+                char *command_return = interpret(current_connection, command, connfd);
                 write(connfd, command_return, strlen(command_return));
             }
             // write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
