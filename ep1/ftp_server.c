@@ -42,7 +42,6 @@
 #include <sys/stat.h>
 #include <string.h>
 
-
 #define LISTENQ 1
 #define MAXDATASIZE 100
 #define MAXLINE 4096
@@ -121,6 +120,9 @@ char *interpret(connection *current_connection, char *command[]) {
     struct stat s;
     int result = -1;
 
+    int connfd_data;
+    struct sockaddr_in servaddr;
+
     switch (command_code)
     {
     case 0: // USER
@@ -146,8 +148,31 @@ char *interpret(connection *current_connection, char *command[]) {
         return "215 Renan's ftp server.\n";
     
     case 3: // PASV
-        // struct sockaddr_in servaddr;
-        return "birl";
+        //cria um socket connfd_data para a passagem de dados
+        if ((connfd_data = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+            perror("socket :(\n");
+            exit(2);
+        }
+
+        srand(time(NULL));
+        int a = rand() % (200 + 1 - 20);   
+        int b = rand() % (200 + 1 - 20);   
+
+        //setando o socket para passagem de dados
+        bzero(&servaddr, sizeof(servaddr));
+        servaddr.sin_family        = AF_INET;
+        servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+        servaddr.sin_port          = htons(a * 256 + b);//htons(atoi("41964"));
+        if (bind(connfd_data, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1) {
+            perror("olha ai já deu bind já deus do céu :(\n");
+            exit(3);
+        }
+        char *message = malloc(200);
+        sprintf(message, "227 passive mode (127,0,0,1,%d,%d)\n", a, b);
+        //ouve o connfd_data
+        listen(connfd_data, 5);
+        return message;
+        // return "227 passive mode (127,0,0,1,100,240)\n";
 
 
     case -1:
