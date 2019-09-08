@@ -52,7 +52,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "RETR"};
 typedef struct user {
     char *name;
     char *password;
@@ -77,22 +77,8 @@ user* init_user() {
 connection* init_connection() {
     struct sockaddr_in servaddr;
     connection* current_connection = (connection*) malloc(sizeof(connection*));
-    current_connection->current_user = init_user();
+    current_connection->current_user = init_user();    
     
-    if ((current_connection->data_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
-        perror("socket :(\n");
-        exit(2);
-    }
-
-    bzero(&servaddr, sizeof(servaddr));
-    servaddr.sin_family        = AF_INET;
-    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    servaddr.sin_port          = htons(atoi("8020"));
-
-    if (bind(current_connection->data_fd, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1) {
-        perror("bind :(\n");
-        exit(3);
-    }
     return current_connection;
 }
 
@@ -112,8 +98,26 @@ int check_command(char *command) {
     return -1;
 }
 
-// int pasv(connection *current_connection) {
-// }
+char* retr(connection *current_connection, char*filename) {
+    FILE *file;
+    int file_block_size;
+    char databuf[MAXDATASIZE];
+
+    current_connection->data_fd = accept(current_connection->data_fd, (struct sockaddr *) NULL, NULL);
+    file = fopen(filename, "rb");
+    if(!file) {
+        return "550 documento nao existe.\n";
+    }
+    while((file_block_size = fread(databuf, sizeof(char), MAXDATASIZE, file))>0) {
+        if(send(current_connection->data_fd, databuf, file_block_size, 0) < 0) {
+            return "550 deu ruim.\n";
+        }
+        bzero(databuf, MAXDATASIZE);
+    }
+    close(current_connection->data_fd);
+    return "226 transferencia completada.\n";
+}
+
 
 char *interpret(connection *current_connection, char *command[], int connfd) {
     int command_code = check_command(command[0]);
@@ -126,6 +130,9 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
     struct sockaddr_in servaddr;
     struct dirent *de;  
     DIR *dr;
+    FILE *file;
+    int file_block_size;
+    char databuf[MAXDATASIZE];
 
 
     switch (command_code)
@@ -172,6 +179,7 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
             perror("olha ai já deu bind já deus do céu :(\n");
             exit(3);
         }
+        current_connection->data_fd=connfd_data;
         char *message = malloc(200);
         sprintf(message, "227 passive mode (127,0,0,1,%d,%d)\n", a, b);
         //ouve o connfd_data
@@ -198,6 +206,10 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
         closedir(dr);     
 
         return "226 e ai xuxu\n";
+    case 5:
+    message = "150 Opening BINARY mode data connection.\n";
+    write(current_connection->command_fd, message, strlen(message));
+    return retr(current_connection, command[1]);
 
     case -1:
         return "502 comando nao implementado.\n";
