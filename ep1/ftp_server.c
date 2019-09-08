@@ -52,7 +52,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "GET", "PUT", "DELE"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "GET", "PUT", "DELE", "QUIT"};
 typedef struct user {
     char *name;
     char *password;
@@ -204,7 +204,11 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
     case 7:
         //comand[1] é o argumento
         // printf("COMANDO: %s", command[1]);
-        flag = remove(command[1]);
+        strcpy(home_tmp, "./");
+        strcat(home_tmp, current_connection->current_user->home_dir);
+        strcat(home_tmp, "/");
+        strcat(home_tmp, command[1]);
+        flag = remove(home_tmp);
         if (flag == 0){
             return "250 deleção concluída\n";
         }
@@ -212,6 +216,10 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
             return "550 não foi possível realizar a deleção\n";
         }
 
+    case 8:
+        return "221 conexão encerrada. Pensei que fossemos amigos..\n";
+        close(connfd_data);
+        
     case -1:
         return "502 comando nao implementado.\n";
         break;
