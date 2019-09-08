@@ -51,12 +51,19 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PORT"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV"};
 typedef struct user {
     char *name;
     char *password;
     char *home_dir;
 } user;
+
+typedef struct connection {
+    user *current_user;
+    int command_fd;
+    int data_fd;
+} connection;
+
 
 user* init_user() {
     user *current_user = (user*) malloc(sizeof(user*));
@@ -64,6 +71,11 @@ user* init_user() {
     current_user->password = (char*) malloc(MAXPASSWORD*sizeof(char));
     current_user->home_dir = (char*) malloc(MAXPASSWORD*sizeof(char));
     return current_user;
+}
+
+connection* init_connection() {
+    connection* current_connection = (connection*) malloc(sizeof(connection*));
+    current_connection->current_user = init_user();
 }
 
 char** split_buffer(char buffer[]) {
@@ -82,7 +94,7 @@ int check_command(char *command) {
     return -1;
 }
 
-char *interpret(user *current_user, char *command[]) {
+char *interpret(connection *current_connection, char *command[]) {
     int command_code = check_command(command[0]);
     command[1][strcspn(command[1], "\r\n")] = 0;
 
@@ -92,28 +104,31 @@ char *interpret(user *current_user, char *command[]) {
     switch (command_code)
     {
     case 0: // USER
-        strncpy(current_user->name, command[1], strlen(command[1]));
+        strncpy(current_connection->current_user->name, command[1], strlen(command[1]));
         return "331\n";
-        break;
     case 1: // PASSWORD
-        strncpy(current_user->password, command[1], strlen(command[1]));
+        strncpy(current_connection->current_user->password, command[1], strlen(command[1]));
         // current_user->home_dir = "/home/";
-        strcat(current_user->home_dir, current_user->name);
+        strcat(current_connection->current_user->home_dir, current_connection->current_user->name);
 
         
-        if(stat(current_user->home_dir, &s) == 0 && S_ISDIR(s.st_mode)) {
+        if(stat(current_connection->current_user->home_dir, &s) == 0 && S_ISDIR(s.st_mode)) {
             result = 0;
         } else {
-            result = mkdir(current_user->home_dir, 0777);
+            result = mkdir(current_connection->current_user->home_dir, 0777);
         }
         if(result != 0){
             printf("erro ao criar usuario, tente rodar o servidor como root");
             return "451 erro no servidor.\n";
         }
         return "230 usuario logado.\n";
-        break;
     case 2: // SYST
         return "215 Renan's ftp server.\n";
+    
+    case 3: // PASV
+        // struct sockaddr_in servaddr;
+        return "birl";
+
 
     case -1:
         return "502 comando nao implementado.\n";
@@ -255,13 +270,16 @@ int main (int argc, char **argv) {
             //usuários com no máximo 100 caracteres
             char buffer[MAXDATASIZE];
             user *current_user = init_user();
+            connection *current_connection= init_connection();
+            current_connection->command_fd = connfd;
             char **command;
-            int n, command_value;
+            int n, command_value, datafd;
+            struct sockaddr_in servaddr_passive;
             write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             while(n = read(connfd, buffer, MAXLINE) > 0) {
                 command = split_buffer(buffer);
-                char *command_return = interpret(current_user, command);
-                write(connfd, command_return, strlen(command_return));
+                char *command_return = interpret(current_connection, command);
+                
             }
             // write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             // while(n = read(connfd, buffer, 100) > 0) {
