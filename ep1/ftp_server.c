@@ -74,8 +74,25 @@ user* init_user() {
 }
 
 connection* init_connection() {
+    struct sockaddr_in servaddr;
     connection* current_connection = (connection*) malloc(sizeof(connection*));
     current_connection->current_user = init_user();
+    
+    if ((current_connection->data_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        perror("socket :(\n");
+        exit(2);
+    }
+
+    bzero(&servaddr, sizeof(servaddr));
+    servaddr.sin_family        = AF_INET;
+    servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
+    servaddr.sin_port          = htons(atoi("8020"));
+
+    if (bind(current_connection->data_fd, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1) {
+        perror("bind :(\n");
+        exit(3);
+    }
+    return current_connection;
 }
 
 char** split_buffer(char buffer[]) {
@@ -92,6 +109,9 @@ int check_command(char *command) {
         }
     }
     return -1;
+}
+
+int pasv(connection *current_connection) {
 }
 
 char *interpret(connection *current_connection, char *command[]) {
@@ -279,7 +299,7 @@ int main (int argc, char **argv) {
             while(n = read(connfd, buffer, MAXLINE) > 0) {
                 command = split_buffer(buffer);
                 char *command_return = interpret(current_connection, command);
-                
+                write(connfd, command_return, strlen(command_return));
             }
             // write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             // while(n = read(connfd, buffer, 100) > 0) {
