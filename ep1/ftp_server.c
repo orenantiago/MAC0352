@@ -42,6 +42,7 @@
 #include <sys/stat.h>
 #include <string.h>
 #include <dirent.h> 
+#include <fcntl.h>
 
 
 #define LISTENQ 1
@@ -101,8 +102,7 @@ int check_command(char *command) {
 }
 
 char* retr(connection *current_connection, char*filename) {
-    FILE *file;
-    int file_block_size;
+    int fd, block_size;
     char *full_filename= (char*) malloc(sizeof(current_connection->dir) + sizeof(filename)+1);
     bzero(full_filename, sizeof(full_filename));
     strcat(full_filename, current_connection->dir);
@@ -111,12 +111,12 @@ char* retr(connection *current_connection, char*filename) {
     char databuf[MAXDATASIZE];
 
     current_connection->data_fd = accept(current_connection->data_fd, (struct sockaddr *) NULL, NULL);
-    file = fopen(filename, "r");
-    if(!file) {
+    fd = open(full_filename, 00);
+    if(!fd) {
         return "550 documento nao existe.\n";
     }
-    while((file_block_size = fread(databuf, sizeof(char), MAXDATASIZE, file))>0) {
-        if(send(current_connection->data_fd, databuf, file_block_size, 0) < 0) {
+    while((block_size=read(fd, databuf, MAXDATASIZE))>0) {
+        if(send(current_connection->data_fd, databuf, block_size, 0) < 0) {
             return "550 deu ruim.\n";
         }
         bzero(databuf, MAXDATASIZE);
