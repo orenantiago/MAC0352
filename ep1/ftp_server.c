@@ -53,7 +53,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "RETR", "STOR", "DELE", "QUIT"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "RETR", "STOR", "DELE", "QUIT", "CWD"};
 typedef struct user {
     char *name;
     char *password;
@@ -101,6 +101,20 @@ int check_command(char *command) {
     return -1;
 }
 
+char* cwd(connection *current_connection, char*dir) {
+    struct stat s;
+    char *new_dir= (char*) malloc(sizeof(current_connection->dir) + sizeof(dir)+1);
+    bzero(new_dir, sizeof(new_dir));
+    strcat(new_dir, current_connection->dir);
+    strcat(new_dir, "/");
+    strcat(new_dir, dir);
+    if (!(stat(current_connection->current_user->home_dir, &s) == 0 && S_ISDIR(s.st_mode))){ 
+        return "550 Diretório não existe\n"; 
+    } 
+    current_connection->dir=new_dir;
+    return "226 OK\n";
+}
+
 char* retr(connection *current_connection, char*filename) {
     int block_size;
     FILE *file;
@@ -118,7 +132,7 @@ char* retr(connection *current_connection, char*filename) {
     }
     while((block_size=fread(databuf, 1, MAXDATASIZE, file))>0) {
         if(send(current_connection->data_fd, databuf, block_size, 0) < 0) {
-            return "550 teste.\n";
+            return "550 problema na transferencia de arquivo.\n";
         }
         bzero(databuf, MAXDATASIZE);
     }
@@ -139,9 +153,12 @@ char* stor(connection *current_connection, char*filename) {
 
     current_connection->data_fd = accept(current_connection->data_fd, (struct sockaddr *) NULL, NULL);
     file = fopen(full_filename, "w");
+    if(!file) {
+        return "550 problema na transferência de arquivo.\n";
+    }
     while((block_size=read(current_connection->data_fd, databuf, MAXDATASIZE)) > 0) {
         if(fwrite(databuf, 1, block_size, file) != block_size) {
-            return "550 teste.\n";
+            return "550 problema na transferência de arquivo.\n";
         }
         bzero(databuf, MAXDATASIZE);
     }
@@ -218,8 +235,8 @@ char *interpret(connection *current_connection, char *command[]) {
         return message;
         // return "227 passive mode (127,0,0,1,100,240)\n";
     case 4: // LIST
-        strcpy(home_tmp, "./");
-        strcat(home_tmp, current_connection->current_user->home_dir);
+        // strcpy(home_tmp, "./");
+        strcat(home_tmp, current_connection->dir);
         dr = opendir(home_tmp); 
         if (dr == NULL){ 
             return "551 Não foi possível abrir o diretório\n"; 
@@ -244,7 +261,7 @@ char *interpret(connection *current_connection, char *command[]) {
         message = "150 abrindo a conexao binaria que existe entre nos (vem de zap).\n";
         write(current_connection->command_fd, message, strlen(message));
         return stor(current_connection, command[1]);
-    case 7:
+    case 7: // DELE
         //comand[1] é o argumento
         // printf("COMANDO: %s", command[1]);
         strcpy(home_tmp, "./");
@@ -260,10 +277,13 @@ char *interpret(connection *current_connection, char *command[]) {
         }
 
         return "226 e ai xuxu\n";
-    case 8:
-        return "221 conexão encerrada. Pensei que fossemos amigos..\n";
+    case 8: // QUIT
         close(current_connection->data_fd);
-        
+        return "221 conexão encerrada. Pensei que fossemos amigos..\n";
+    case 9: // CWD
+        printf("teste");
+        return cwd(current_connection, command[1]);
+
     case -1:
         return "502 comando nao implementado.\n";
         break;
