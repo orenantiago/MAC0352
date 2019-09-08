@@ -53,7 +53,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "RETR", "PUT", "DELE", "QUIT"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "RETR", "STOR", "DELE", "QUIT"};
 typedef struct user {
     char *name;
     char *password;
@@ -102,7 +102,8 @@ int check_command(char *command) {
 }
 
 char* retr(connection *current_connection, char*filename) {
-    int fd, block_size;
+    int block_size;
+    FILE *file;
     char *full_filename= (char*) malloc(sizeof(current_connection->dir) + sizeof(filename)+1);
     bzero(full_filename, sizeof(full_filename));
     strcat(full_filename, current_connection->dir);
@@ -111,16 +112,40 @@ char* retr(connection *current_connection, char*filename) {
     char databuf[MAXDATASIZE];
 
     current_connection->data_fd = accept(current_connection->data_fd, (struct sockaddr *) NULL, NULL);
-    fd = open(full_filename, 00);
-    if(!fd) {
+    file = fopen(full_filename, "r");
+    if(!file) {
         return "550 documento nao existe.\n";
     }
-    while((block_size=read(fd, databuf, MAXDATASIZE))>0) {
+    while((block_size=fread(databuf, 1, MAXDATASIZE, file))>0) {
         if(send(current_connection->data_fd, databuf, block_size, 0) < 0) {
-            return "550 deu ruim.\n";
+            return "550 teste.\n";
         }
         bzero(databuf, MAXDATASIZE);
     }
+    fclose(file);
+    close(current_connection->data_fd);
+    return "226 transferencia completada.\n";
+}
+
+char* stor(connection *current_connection, char*filename) {
+    int block_size;
+    FILE *file;
+    char *full_filename= (char*) malloc(sizeof(current_connection->dir) + sizeof(filename)+1);
+    bzero(full_filename, sizeof(full_filename));
+    strcat(full_filename, current_connection->dir);
+    strcat(full_filename, "/");
+    strcat(full_filename, filename);
+    char databuf[MAXDATASIZE];
+
+    current_connection->data_fd = accept(current_connection->data_fd, (struct sockaddr *) NULL, NULL);
+    file = fopen(full_filename, "w");
+    while((block_size=read(current_connection->data_fd, databuf, MAXDATASIZE)) > 0) {
+        if(fwrite(databuf, 1, block_size, file) != block_size) {
+            return "550 teste.\n";
+        }
+        bzero(databuf, MAXDATASIZE);
+    }
+    fclose(file);
     close(current_connection->data_fd);
     return "226 transferencia completada.\n";
 }
@@ -192,9 +217,7 @@ char *interpret(connection *current_connection, char *command[]) {
         listen(current_connection->data_fd, 5);
         return message;
         // return "227 passive mode (127,0,0,1,100,240)\n";
-    case 4:
-        // printf("%d\n", connfd);
-        // write(connfd, "150 diretório\n", strlen("150 diretório\n"));
+    case 4: // LIST
         strcpy(home_tmp, "./");
         strcat(home_tmp, current_connection->current_user->home_dir);
         dr = opendir(home_tmp); 
@@ -212,12 +235,15 @@ char *interpret(connection *current_connection, char *command[]) {
         }
         closedir(dr);     
         return "226 listagem dos arquivos completa\n";
-    case 5:
+    case 5: // RETR
         message = "150 abrindo a conexao binaria que existe entre nos (vem de zap).\n";
         write(current_connection->command_fd, message, strlen(message));
         return retr(current_connection, command[1]);
 
-    case 6:
+    case 6: // STOR
+        message = "150 abrindo a conexao binaria que existe entre nos (vem de zap).\n";
+        write(current_connection->command_fd, message, strlen(message));
+        return stor(current_connection, command[1]);
     case 7:
         //comand[1] é o argumento
         // printf("COMANDO: %s", command[1]);
