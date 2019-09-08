@@ -51,7 +51,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "PORT"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PORT"};
 typedef struct user {
     char *name;
     char *password;
@@ -68,8 +68,8 @@ user* init_user() {
 
 char** split_buffer(char buffer[]) {
     char **command = (char**) malloc(2*sizeof(char*));
-    command[0] = strtok(buffer," ");
-    command[1] = strtok(NULL," ");
+    command[0] = strtok(buffer," \n\r");
+    command[1] = strtok(NULL," \n\r");
     return command;
 }
 
@@ -112,6 +112,9 @@ char *interpret(user *current_user, char *command[]) {
         }
         return "230 usuario logado.\n";
         break;
+    case 2: // SYST
+        return "215 Renan's ftp server.\n";
+
     case -1:
         return "502 comando nao implementado.\n";
         break;
