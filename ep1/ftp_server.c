@@ -63,6 +63,7 @@ typedef struct connection {
     user *current_user;
     int command_fd;
     int data_fd;
+    char * dir;
 } connection;
 
 
@@ -77,7 +78,8 @@ user* init_user() {
 connection* init_connection() {
     struct sockaddr_in servaddr;
     connection* current_connection = (connection*) malloc(sizeof(connection*));
-    current_connection->current_user = init_user();    
+    current_connection->current_user = init_user();  
+    current_connection->dir = (char*) malloc(MAXPASSWORD*sizeof(char));  
     
     return current_connection;
 }
@@ -119,14 +121,13 @@ char* retr(connection *current_connection, char*filename) {
 }
 
 
-char *interpret(connection *current_connection, char *command[], int connfd) {
+char *interpret(connection *current_connection, char *command[]) {
     int command_code = check_command(command[0]);
     command[1][strcspn(command[1], "\r\n")] = 0;
 
     struct stat s;
     int result = -1;
 
-    int connfd_data;
     struct sockaddr_in servaddr;
     struct dirent *de; 
     DIR *dr;
@@ -151,15 +152,18 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
         }
         if(result != 0){
             printf("erro ao criar usuario, tente rodar o servidor como root");
+            
             return "451 erro no servidor.\n";
         }
+        strcpy(current_connection->dir, current_connection->current_user->home_dir);
+
         return "230 usuario logado.\n";
     case 2: // SYST
         return "215 Renan's ftp server.\n";
     
     case 3: // PASV
         //cria um socket connfd_data para a passagem de dados
-        if ((connfd_data = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
+        if ((current_connection->data_fd = socket(AF_INET, SOCK_STREAM, 0)) == -1) {
             perror("socket :(\n");
             exit(2);
         }
@@ -173,15 +177,14 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
         servaddr.sin_family        = AF_INET;
         servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
         servaddr.sin_port          = htons(a * 256 + b);//htons(atoi("41964"));
-        if (bind(connfd_data, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1) {
+        if (bind(current_connection->data_fd, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1) {
             perror("bind :(\n");
             exit(3);
         }
-        current_connection->data_fd=connfd_data;
         char *message = malloc(200);
         sprintf(message, "227 passive mode (127,0,0,1,%d,%d)\n", a, b);
         //ouve o connfd_data
-        listen(connfd_data, 5);
+        listen(current_connection->data_fd, 5);
         return message;
         // return "227 passive mode (127,0,0,1,100,240)\n";
     case 4:
@@ -198,7 +201,7 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
             //para não listar o mesmo diretório ou o diretório pai
             if (strcmp(de->d_name, ".") != 0 && strcmp(de->d_name, "..") != 0){
                 // write(connfd, de->d_name, strlen(de->d_name));
-                dprintf(connfd, "%s %s", de->d_name, " "); 
+                dprintf(current_connection->command_fd, "%s %s", de->d_name, " "); 
             }                
             de = readdir(dr);
         }
@@ -228,7 +231,7 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
         return "226 e ai xuxu\n";
     case 8:
         return "221 conexão encerrada. Pensei que fossemos amigos..\n";
-        close(connfd_data);
+        close(current_connection->data_fd);
         
     case -1:
         return "502 comando nao implementado.\n";
@@ -378,7 +381,7 @@ int main (int argc, char **argv) {
             write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
             while(n = read(connfd, buffer, MAXLINE) > 0) {
                 command = split_buffer(buffer);
-                char *command_return = interpret(current_connection, command, connfd);
+                char *command_return = interpret(current_connection, command);
                 write(connfd, command_return, strlen(command_return));
             }
             // write(connfd, "220 bem vindo :)\n", strlen("220 bem vindo :)\n"));
