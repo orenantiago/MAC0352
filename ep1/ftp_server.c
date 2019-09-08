@@ -52,7 +52,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST"};
+char *known_commands[]= {"USER", "PASS", "SYST", "PASV", "LIST", "GET", "PUT", "DELE"};
 typedef struct user {
     char *name;
     char *password;
@@ -124,9 +124,10 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
 
     int connfd_data;
     struct sockaddr_in servaddr;
-    struct dirent *de;  
+    struct dirent *de; 
     DIR *dr;
-
+    int flag;
+    char *home_tmp = malloc(200);
 
     switch (command_code)
     {
@@ -169,7 +170,7 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
         servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
         servaddr.sin_port          = htons(a * 256 + b);//htons(atoi("41964"));
         if (bind(connfd_data, (struct sockaddr *)&servaddr, sizeof(servaddr)) == -1) {
-            perror("olha ai já deu bind já deus do céu :(\n");
+            perror("bind :(\n");
             exit(3);
         }
         char *message = malloc(200);
@@ -181,10 +182,11 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
     case 4:
         // printf("%d\n", connfd);
         // write(connfd, "150 diretório\n", strlen("150 diretório\n"));
-        dr = opendir("."); 
+        strcpy(home_tmp, "./");
+        strcat(home_tmp, current_connection->current_user->home_dir);
+        dr = opendir(home_tmp); 
         if (dr == NULL){ 
-            printf("Não foi possível abrir o diretório"); 
-            return 0; 
+            return "551 Não foi possível abrir o diretório\n"; 
         } 
         de = readdir(dr);
         while (de != NULL){
@@ -196,8 +198,19 @@ char *interpret(connection *current_connection, char *command[], int connfd) {
             de = readdir(dr);
         }
         closedir(dr);     
-
-        return "226 e ai xuxu\n";
+        return "226 listagem dos arquivos completa\n";
+    case 5:
+    case 6:
+    case 7:
+        //comand[1] é o argumento
+        // printf("COMANDO: %s", command[1]);
+        flag = remove(command[1]);
+        if (flag == 0){
+            return "250 deleção concluída\n";
+        }
+        else{
+            return "550 não foi possível realizar a deleção\n";
+        }
 
     case -1:
         return "502 comando nao implementado.\n";
