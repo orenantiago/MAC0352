@@ -51,7 +51,7 @@
 #define USER 0
 #define PASS 1
 
-char *known_commands[]= {"USER", "PASS"};
+char *known_commands[]= {"USER", "PASS", "PORT"};
 typedef struct user {
     char *name;
     char *password;
@@ -84,6 +84,8 @@ int check_command(char *command) {
 
 char *interpret(user *current_user, char *command[]) {
     int command_code = check_command(command[0]);
+    command[1][strcspn(command[1], "\r\n")] = 0;
+
     struct stat s;
     int result = -1;
 
@@ -96,8 +98,8 @@ char *interpret(user *current_user, char *command[]) {
     case 1: // PASSWORD
         strncpy(current_user->password, command[1], strlen(command[1]));
         // current_user->home_dir = "/home/";
-        current_user->home_dir = "./";
         strcat(current_user->home_dir, current_user->name);
+
         
         if(stat(current_user->home_dir, &s) == 0 && S_ISDIR(s.st_mode)) {
             result = 0;
