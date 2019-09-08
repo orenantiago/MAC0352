@@ -103,10 +103,15 @@ int check_command(char *command) {
 char* retr(connection *current_connection, char*filename) {
     FILE *file;
     int file_block_size;
+    char *full_filename= (char*) malloc(sizeof(current_connection->dir) + sizeof(filename)+1);
+    bzero(full_filename, sizeof(full_filename));
+    strcat(full_filename, current_connection->dir);
+    strcat(full_filename, "/");
+    strcat(full_filename, filename);
     char databuf[MAXDATASIZE];
 
     current_connection->data_fd = accept(current_connection->data_fd, (struct sockaddr *) NULL, NULL);
-    file = fopen(filename, "rb");
+    file = fopen(filename, "r");
     if(!file) {
         return "550 documento nao existe.\n";
     }
