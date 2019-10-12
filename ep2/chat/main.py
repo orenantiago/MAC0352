@@ -1,9 +1,11 @@
+#!/usr/bin/env python3
 #Estamos utilizando o protocolo TCP!
 #   Explicar a motivação nos slides
 
 import socket
 import os
 import sys
+import network
 
 #Como vamos fazer com o líder
 #Protocolo para passar informações de um programa para outro
@@ -27,7 +29,7 @@ actions = []
 
 #faz o papel de mandar arquivos?
 def server():
-    HOST = "127.0.0.1"
+    HOST = "0.0.0.0"
     PORT = 8002
     #criando o socket do servidor
     #AF_INET = IPv4
@@ -65,9 +67,31 @@ def server():
 
 
 #faz o papel de receber arquivos?
-# def client():
+def client():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # tenta conectar durante 5 segundos
+    s.settimeout(5)
+    # pega o ip da máquina principal que está no arquivo ep2.conf
+    main_host = network.main_server_ip()
+    try:
+        s.connect((main_host, 8002))
+    except:
+        print("não deu para se conectar com a máquina principal :/")
+        exit()
+
+    while True:
+        text = input("Digite o texto para o servidor > ")
+        if (text == "exit"):
+            sys.exit(0)
+        s.send(bytes(text, "utf-8"))
+
 def main():
-    server()
+    if(len(sys.argv) == 1):
+        client()
+    elif(len(sys.argv) == 2):
+        server()
+    else:
+        print('Numero invalido de argumentos')
 
 if __name__ == "__main__":
     main()
