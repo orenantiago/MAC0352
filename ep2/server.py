@@ -10,6 +10,9 @@ PORT = 63234
 
 def client():
     print('client')
+    ip = network.main_server_ip()
+    if not ip:
+        exit()
 
 def server():
     print('server')
