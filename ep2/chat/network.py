@@ -26,6 +26,18 @@ def main_server_ip():
         return None
     
 
-def available_hosts():
+def add_host(ip):
+    try:
+        f = open('hosts', 'a')
+        f.write(ip + '\n')
+
+
+    except:
+        print("Não foi possível acessar o arquivo de hosts da rede")
+        return False
+
+    f.close()
+    return True
+
+def remove_host(ip):
     None
-    

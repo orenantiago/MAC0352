@@ -51,8 +51,10 @@ def server():
             serversocket.close()
         childpid = os.fork()
         if childpid == 0:
+            serversocket.close()
             print("Conexão com ", address," estabelecida!")
-            peers.append(address)
+            if not network.add_host(address[0]):
+                exit(1)
 
             while True:
 
@@ -60,10 +62,9 @@ def server():
                 # clientsocket.send(bytes(text, "utf-8"))
                 data = clientsocket.recv(1024)
                 print(data.decode("UTF-8"))
-
-
-
-        # clientsocket.send(bytes("Oh, I didn't see you there. Hello!", "utf-8"))
+                # clientsocket.send(bytes('top'))
+        
+        clientsocket.close()
 
 
 #faz o papel de receber arquivos?
