@@ -4,6 +4,7 @@ import os
 import sys
 import network
 import time
+import errno
 
 peers = []
 actions = []
@@ -58,24 +59,31 @@ def server():
         # clientsocket.send(bytes("Oh, I didn't see you there. Hello!", "utf-8"))
 
 
-# #faz o papel de receber arquivos?
-# def client():
-#     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-#     # tenta conectar durante 5 segundos
-#     s.settimeout(5)
-#     # pega o ip da máquina principal que está no arquivo ep2.conf
-#     main_host = network.main_server_ip()
-#     try:
-#         s.connect((main_host, 8002))
-#     except:
-#         print("não deu para se conectar com a máquina principal :/")
-#         exit()
+#faz o papel de receber arquivos?
+def client():
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # tenta conectar durante 5 segundos
+    s.settimeout(5)
+    # pega o ip da máquina principal que está no arquivo ep2.conf
+    main_host = network.main_server_ip()
+    try:
+        s.connect((main_host, 8000))
+    except:
+        print("não deu para se conectar com a máquina principal :/")
+        exit()
 
-#     while True:
-#         text = input("Digite o texto para o servidor > ")
-#         if (text == "exit"):
-#             sys.exit(0)
-#         s.send(bytes(text, "utf-8"))
+    integers = ""
+    while True:
+        try:
+            data = s.recv(1024).decode("UTF-8")
+            integers = integers + data
+        except socket.timeout:
+            break
+    integers_list = integers.split(",")
+    # for i in integers_list:
+    #     i = int(i)
+    print(integers_list)
+
 
 def main():
     if(len(sys.argv) == 1):
