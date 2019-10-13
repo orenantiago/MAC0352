@@ -24,20 +24,3 @@ def main_server_ip():
         print("não foi possivel ler o arquivo de configuração")
         print("deve existir um arquivo de configuração chamado ep2.conf com o ip da máquina principal da rede no formato xxx.xxx.xxx.xxx")
         return None
-    
-
-def add_host(ip):
-    try:
-        f = open('hosts', 'a')
-        f.write(ip + '\n')
-
-
-    except:
-        print("Não foi possível acessar o arquivo de hosts da rede")
-        return False
-
-    f.close()
-    return True
-
-def remove_host(ip):
-    None
