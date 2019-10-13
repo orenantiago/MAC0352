@@ -32,6 +32,11 @@ def client():
         except socket.timeout:
             break
     integers_list = integers.split(",")
-    # for i in integers_list:
-    #     i = int(i)
-    print(integers_list)
+    integers_list.pop()
+    for i in range(0, len(integers_list)):
+        integers_list[i] = int(integers_list[i])
+    integers_list.sort()
+    # print(integers_list)
+
+    for i in integers_list:
+        s.send(bytes(str(i), "UTF-8"))
