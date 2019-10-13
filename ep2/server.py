@@ -9,10 +9,24 @@ import threading
 peers = []
 actions = []
 integers = []
-chunk_size=10
+integers_size = None
+is_sorted = False
+chunk_size=100
 RESULT = []
 DECODE = 'utf-8'
 DATA_SIZE = 1024
+
+def write_result():
+    global RESULT
+    try:
+        os.remove('result')
+    except:
+        pass
+    f = open('result', 'a')
+    print('terminou de ordenar')
+    for number in RESULT:
+        f.write(str(number) + '\n')
+    f.close()
 
 def slice_list():
     global integers
@@ -21,24 +35,28 @@ def slice_list():
     return chunk
 
 def sort():
-    global RESULT
-    while len(integers) > 0:
+    global RESULT, integers_size, is_sorted
+    while not is_sorted:
         chunk = slice_list()
         chunk.sort()
         print('ordenou em casa')
         RESULT = sorted(RESULT + chunk)
+        if len(RESULT) >= integers_size:
+            print('terminou de ordenar em casa')
+            is_sorted = True
+            write_result()
         time.sleep(0.5)
 
 sorted_integers = [0, 0]
 
 def on_new_client(clientsocket, address):
-    global RESULT, peers
+    global RESULT, peers, integers, is_sorted, integers_size
     print("Conexão com ", address," estabelecida!")
     
     # guarda o endereço e o socket responsável pela conexão
     peers.append((address[0], clientsocket))
 
-    while len(integers) > 0:
+    while not is_sorted:
         # verifica se pode mandar uma lista para ordenar
         clientsocket.send(bytes('CAN_SEND', DECODE))
         response = clientsocket.recv(DATA_SIZE).decode(DECODE).split()
@@ -64,36 +82,44 @@ def on_new_client(clientsocket, address):
             print('ordenou fora de casa')
             RESULT = sorted(RESULT + ordered_received)
 
+            if len(RESULT) >= integers_size:
+                print('terminou de ordenar por cliente')
+                is_sorted = True
+                write_result()
+            # if len(integers) == 0:
 
+
+    clientsocket.close()
 
 
     # clientsocket.send(bytes(str(50000), "utf-8"))
     # time.sleep(5)
-    for i in range(0, 49999):            
-        clientsocket.send(bytes(str(integers[i]), "utf-8"))
-        clientsocket.send(bytes(str(","), "utf-8"))
-    time.sleep(10)
-    clientsocket.settimeout(2)
-    all_data = ""
-    while True:
-        try:
-            data = clientsocket.recv(1024).decode("UTF-8")
-            if(len(data) > 4):
-                all_data = all_data + data
-                print(data)
-                print("\n")
-            else:
-                break
-        except socket.timeout:
-            print("PQ NAO CHEGA AQUI??")
-    sorted_chunk = all_data.split(",")
-    sorted_chunk.pop()
-    # print(sorted_chunk)
-    sorted_integers[0] = sorted_chunk
-    print(sorted_integers[0])
+    # for i in range(0, 49999):            
+    #     clientsocket.send(bytes(str(integers[i]), "utf-8"))
+    #     clientsocket.send(bytes(str(","), "utf-8"))
+    # time.sleep(10)
+    # clientsocket.settimeout(2)
+    # all_data = ""
+    # while True:
+    #     try:
+    #         data = clientsocket.recv(1024).decode("UTF-8")
+    #         if(len(data) > 4):
+    #             all_data = all_data + data
+    #             print(data)
+    #             print("\n")
+    #         else:
+    #             break
+    #     except socket.timeout:
+    #         print("PQ NAO CHEGA AQUI??")
+    # sorted_chunk = all_data.split(",")
+    # sorted_chunk.pop()
+    # # print(sorted_chunk)
+    # sorted_integers[0] = sorted_chunk
+    # print(sorted_integers[0])
 
 
 def server(file_name):
+    global integers_size, is_sorted
     HOST = "0.0.0.0"
     PORT = 8000
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -105,20 +131,20 @@ def server(file_name):
     f = open(file_name, "r")
     for i in f:
         integers.append(int(i.strip()))
-    # print(integers)
-
-    #se 1, ordenado, cc 0
-    #[0] - 0 até 49.999
-    #[1] - 50.000 até 100.000
-    sorted_integers = [0, 0]
+    
+    integers_size = len(integers)
     
     # começa a ordenar aqui mesmo
     threading.Thread(target=sort).start()
     serversocket.settimeout(2)
-    while True:
+    while not is_sorted:
         try:
             clientsocket, address = serversocket.accept()
         except socket.timeout:
+            print(is_sorted)
+            print('timeout')
             continue
             # serversocket.close()
         threading.Thread(target=on_new_client,args=(clientsocket, address)).start()
+    serversocket.close()
+    
