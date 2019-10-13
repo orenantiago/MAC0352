@@ -9,19 +9,53 @@ import threading
 peers = []
 actions = []
 integers = []
+chunk_size=10
+RESULT = []
+DECODE = 'utf-8'
+DATA_SIZE = 1024
+
+def slice_list():
+    chunk = integers[0:chunk_size]
+    del integers[0:chunk_size]
+    return chunk
 
 def on_new_client(clientsocket, address):
+    global RESULT
     print("Conexão com ", address," estabelecida!")
     
     # guarda o endereço e o socket responsável pela conexão
     peers.append((address[0], clientsocket))
     print(peers)
 
+    while len(integers) > 0:
+        clientsocket.send(bytes('CAN_SEND', DECODE))
+        response = clientsocket.recv(DATA_SIZE).decode(DECODE).split()
+        if response[0] == 'CAN':
+            chunk = slice_list()
+            for number in chunk:
+                clientsocket.send(bytes(str(number) + ' ', "utf-8"))
+            clientsocket.send(bytes('STOP', "utf-8"))
+
+            ordered_received = []
+            while True:
+                response = clientsocket.recv(DATA_SIZE).decode(DECODE).split()
+                if 'STOP' in response:
+                    response.pop()
+                    ordered_received.extend([ int(x) for x in response])
+                    break
+                else:
+                    ordered_received.extend([ int(x) for x in response])
+            print(ordered_received)
+            RESULT = sorted(RESULT + ordered_received)
+
+
+
+
     # clientsocket.send(bytes(str(50000), "utf-8"))
     # time.sleep(5)
-    for i in range(0, 49999):            
-        clientsocket.send(bytes(str(integers[i]), "utf-8"))
-        clientsocket.send(bytes(str(","), "utf-8"))
+    # for i in range(0, 49999):            
+    #     clientsocket.send(bytes(str(integers[i]), "utf-8"))
+    #     clientsocket.send(bytes(str(","), "utf-8"))
 
 
 def server(file_name):
@@ -30,12 +64,6 @@ def server(file_name):
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     serversocket.bind((HOST, PORT))
     serversocket.listen(10)
-
-    # limpa o arquivo de hosts
-    try:
-        os.remove('hosts')
-    except:
-        pass
 
     #socket do servidor fica aceitando conexões
     #colocando os números em um array
