@@ -9,6 +9,7 @@ import threading
 peers = []
 actions = []
 integers = []
+sorted_integers = [0, 0]
 
 def on_new_client(clientsocket, address):
     print("Conexão com ", address," estabelecida!")
@@ -22,6 +23,25 @@ def on_new_client(clientsocket, address):
     for i in range(0, 49999):            
         clientsocket.send(bytes(str(integers[i]), "utf-8"))
         clientsocket.send(bytes(str(","), "utf-8"))
+    time.sleep(10)
+    clientsocket.settimeout(2)
+    all_data = ""
+    while True:
+        try:
+            data = clientsocket.recv(1024).decode("UTF-8")
+            if(len(data) > 4):
+                all_data = all_data + data
+                print(data)
+                print("\n")
+            else:
+                break
+        except socket.timeout:
+            print("PQ NAO CHEGA AQUI??")
+    sorted_chunk = all_data.split(",")
+    sorted_chunk.pop()
+    # print(sorted_chunk)
+    sorted_integers[0] = sorted_chunk
+    print(sorted_integers[0])
 
 
 def server(file_name):
@@ -47,12 +67,12 @@ def server(file_name):
     #se 1, ordenado, cc 0
     #[0] - 0 até 49.999
     #[1] - 50.000 até 100.000
-    sorted_integers = [0, 0]
-
+    
+    serversocket.settimeout(2)
     while True:
         try:
             clientsocket, address = serversocket.accept()
-        except:
-            serversocket.close()
-
+        except socket.timeout:
+            continue
+            # serversocket.close()
         threading.Thread(target=on_new_client,args=(clientsocket, address)).start()

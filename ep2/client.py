@@ -36,7 +36,8 @@ def client():
     for i in range(0, len(integers_list)):
         integers_list[i] = int(integers_list[i])
     integers_list.sort()
-    # print(integers_list)
+    print(integers_list)
 
     for i in integers_list:
-        s.send(bytes(str(i), "UTF-8"))
+        s.send(bytes(str(i), "UTF-8"))        
+        s.send(bytes(str(","), "UTF-8"))
