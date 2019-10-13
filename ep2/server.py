@@ -15,6 +15,7 @@ chunk_size=100
 RESULT = []
 DECODE = 'utf-8'
 DATA_SIZE = 1024
+lock = threading.Lock()
 
 def write_result():
     global RESULT
@@ -28,10 +29,13 @@ def write_result():
         f.write(str(number) + '\n')
     f.close()
 
+
 def slice_list():
     global integers
+    lock.acquire()
     chunk = integers[0:chunk_size]
     del integers[0:chunk_size]
+    lock.release()
     return chunk
 
 def sort():
@@ -40,14 +44,14 @@ def sort():
         chunk = slice_list()
         chunk.sort()
         print('ordenou em casa')
+        lock.acquire()
         RESULT = sorted(RESULT + chunk)
         if len(RESULT) >= integers_size:
             print('terminou de ordenar em casa')
             is_sorted = True
             write_result()
+        lock.release()
         time.sleep(0.5)
-
-sorted_integers = [0, 0]
 
 def on_new_client(clientsocket, address):
     global RESULT, peers, integers, is_sorted, integers_size
@@ -80,12 +84,14 @@ def on_new_client(clientsocket, address):
 
             # merge no que já tem de ordenado
             print('ordenou fora de casa')
+            lock.acquire()
             RESULT = sorted(RESULT + ordered_received)
 
             if len(RESULT) >= integers_size:
                 print('terminou de ordenar por cliente')
                 is_sorted = True
                 write_result()
+            lock.release()
             # if len(integers) == 0:
 
 
@@ -141,8 +147,6 @@ def server(file_name):
         try:
             clientsocket, address = serversocket.accept()
         except socket.timeout:
-            print(is_sorted)
-            print('timeout')
             continue
             # serversocket.close()
         threading.Thread(target=on_new_client,args=(clientsocket, address)).start()
