@@ -15,28 +15,41 @@ DECODE = 'utf-8'
 DATA_SIZE = 1024
 
 def slice_list():
+    global integers
     chunk = integers[0:chunk_size]
     del integers[0:chunk_size]
     return chunk
 
-def on_new_client(clientsocket, address):
+def sort():
     global RESULT
+    while len(integers) > 0:
+        chunk = slice_list()
+        chunk.sort()
+        print('ordenou em casa')
+        RESULT = sorted(RESULT + chunk)
+        time.sleep(0.5)
+
+
+def on_new_client(clientsocket, address):
+    global RESULT, peers
     print("Conexão com ", address," estabelecida!")
     
     # guarda o endereço e o socket responsável pela conexão
     peers.append((address[0], clientsocket))
-    print(peers)
 
     while len(integers) > 0:
+        # verifica se pode mandar uma lista para ordenar
         clientsocket.send(bytes('CAN_SEND', DECODE))
         response = clientsocket.recv(DATA_SIZE).decode(DECODE).split()
         if response[0] == 'CAN':
             chunk = slice_list()
+            # envia o trecho de lista para o cliente
             for number in chunk:
                 clientsocket.send(bytes(str(number) + ' ', "utf-8"))
             clientsocket.send(bytes('STOP', "utf-8"))
 
             ordered_received = []
+            # recebe a lista de volta ordenada
             while True:
                 response = clientsocket.recv(DATA_SIZE).decode(DECODE).split()
                 if 'STOP' in response:
@@ -45,7 +58,9 @@ def on_new_client(clientsocket, address):
                     break
                 else:
                     ordered_received.extend([ int(x) for x in response])
-            print(ordered_received)
+
+            # merge no que já tem de ordenado
+            print('ordenou fora de casa')
             RESULT = sorted(RESULT + ordered_received)
 
 
@@ -76,7 +91,9 @@ def server(file_name):
     #[0] - 0 até 49.999
     #[1] - 50.000 até 100.000
     sorted_integers = [0, 0]
-
+    
+    # começa a ordenar aqui mesmo
+    threading.Thread(target=sort).start()
     while True:
         try:
             clientsocket, address = serversocket.accept()
