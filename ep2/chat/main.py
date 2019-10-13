@@ -42,6 +42,12 @@ def server():
     #número de conexões máximo que podemos ouvir
     serversocket.listen(10)
 
+    # limpa o arquivo de hosts
+    try:
+        os.remove('hosts')
+    except:
+        pass
+
     #socket do servidor fica aceitando conexões
     while True:
         #lidando com novas conexões
