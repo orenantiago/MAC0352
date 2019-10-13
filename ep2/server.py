@@ -29,6 +29,7 @@ def sort():
         RESULT = sorted(RESULT + chunk)
         time.sleep(0.5)
 
+sorted_integers = [0, 0]
 
 def on_new_client(clientsocket, address):
     global RESULT, peers
@@ -68,9 +69,28 @@ def on_new_client(clientsocket, address):
 
     # clientsocket.send(bytes(str(50000), "utf-8"))
     # time.sleep(5)
-    # for i in range(0, 49999):            
-    #     clientsocket.send(bytes(str(integers[i]), "utf-8"))
-    #     clientsocket.send(bytes(str(","), "utf-8"))
+    for i in range(0, 49999):            
+        clientsocket.send(bytes(str(integers[i]), "utf-8"))
+        clientsocket.send(bytes(str(","), "utf-8"))
+    time.sleep(10)
+    clientsocket.settimeout(2)
+    all_data = ""
+    while True:
+        try:
+            data = clientsocket.recv(1024).decode("UTF-8")
+            if(len(data) > 4):
+                all_data = all_data + data
+                print(data)
+                print("\n")
+            else:
+                break
+        except socket.timeout:
+            print("PQ NAO CHEGA AQUI??")
+    sorted_chunk = all_data.split(",")
+    sorted_chunk.pop()
+    # print(sorted_chunk)
+    sorted_integers[0] = sorted_chunk
+    print(sorted_integers[0])
 
 
 def server(file_name):
@@ -94,10 +114,11 @@ def server(file_name):
     
     # começa a ordenar aqui mesmo
     threading.Thread(target=sort).start()
+    serversocket.settimeout(2)
     while True:
         try:
             clientsocket, address = serversocket.accept()
-        except:
-            serversocket.close()
-
+        except socket.timeout:
+            continue
+            # serversocket.close()
         threading.Thread(target=on_new_client,args=(clientsocket, address)).start()
