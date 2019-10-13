@@ -3,4 +3,4 @@
 */test.c
 .vagrant
 Vagrantfile
-
+*/__pycache__
