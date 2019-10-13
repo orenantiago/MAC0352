@@ -1,45 +1,18 @@
 #!/usr/bin/env python3
-#Estamos utilizando o protocolo TCP!
-#   Explicar a motivação nos slides
-
 import socket
 import os
 import sys
 import network
+import time
 
-#Como vamos fazer com o líder
-#Protocolo para passar informações de um programa para outro
-#Detecção de máquinas conectadas
-#Algoritmo de ordenação
-
-
-#Roteiro
-#1. Criar um socket para cada programa, precisamos que cada programa seja um servidor e um cliente ao mesmo tempo
-#2. A primeira máquina entra em funcionamento, ela vai precisar conhecer todas as outras máquinas que entrarem (são os peers), essa
-#primeira máquina nunca deixa de funcionar
-#O problema aqui parece ser: a primeira máquina, a que nunca desconecta, vai conversar com aqueles programa que tentarem se conectar,
-#então ela vai saber quem está tentando se conectar, vai conhecer esses IPs. Só que essa máquina que está tentando se conectar também precisa
-#saber os IPs das demais máquinas conectadas, isso não poderia ser feito com a máquina que não desliga nunca fornecendo essa informação?
-#3. Como será feita a ordenação?
-#4.
-
-#lista com as máquinas conectadas na rede
 peers = []
 actions = []
 
-#faz o papel de mandar arquivos?
-def server():
+def server(file_name):
     HOST = "0.0.0.0"
-    PORT = 8002
-    #criando o socket do servidor
-    #AF_INET = IPv4
-    #SOCK_STREAM = TCP
+    PORT = 8000
     serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-
-    #binding esse socket com uma porta (hardcoded)
     serversocket.bind((HOST, PORT))
-
-    #número de conexões máximo que podemos ouvir
     serversocket.listen(10)
 
     # limpa o arquivo de hosts
@@ -49,12 +22,25 @@ def server():
         pass
 
     #socket do servidor fica aceitando conexões
+    #colocando os números em um array
+    f = open(file_name, "r")
+    integers = []
+    for i in f:
+        integers.append(int(i.strip()))
+    print(integers)
+
+    #se 1, ordenado, cc 0
+    #[0] - 0 até 49.999
+    #[1] - 50.000 até 100.000
+    sorted_integers = [0, 0]
+
     while True:
-        #lidando com novas conexões
         try:
             clientsocket, address = serversocket.accept()
         except:
             serversocket.close()
+
+
         childpid = os.fork()
         if childpid == 0:
             serversocket.close()
@@ -62,15 +48,21 @@ def server():
             if not network.add_host(address[0]):
                 exit(1)
 
-            while True:
+            # clientsocket.send(bytes(str(50000), "utf-8"))
+            # time.sleep(5)
+            for i in range(0, 49999):            
+                clientsocket.send(bytes(str(integers[i]), "utf-8"))
+                clientsocket.send(bytes(str(","), "utf-8"))
 
-                # text = input("Digite o texto para o cliente > ")
-                # clientsocket.send(bytes(text, "utf-8"))
-                data = clientsocket.recv(1024)
-                print(data.decode("UTF-8"))
-                # clientsocket.send(bytes('top'))
-        
+            # while True:
+
+            #     # text = input("Digite o texto para o cliente > ")
+            #     # clientsocket.send(bytes(text, "utf-8"))
+            #     data = clientsocket.recv(1024)
+            #     print(data.decode("UTF-8"))
         clientsocket.close()
+
+        # clientsocket.send(bytes("Oh, I didn't see you there. Hello!", "utf-8"))
 
 
 #faz o papel de receber arquivos?
@@ -96,7 +88,7 @@ def main():
     if(len(sys.argv) == 1):
         client()
     elif(len(sys.argv) == 2):
-        server()
+        server(sys.argv[1])
     else:
         print('Numero invalido de argumentos')
 
