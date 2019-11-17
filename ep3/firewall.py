@@ -102,19 +102,25 @@ class Tutorial (object):
     if dst in self.mac_to_port:
       # Send packet out the associated port
       # self.resend_packet(packet_in, self.mac_to_port[dst])
-
       # Once you have the above working, try pushing a flow entry
       # instead of resending the packet (comment out the above and
       # uncomment and complete the below.)
       out_port = self.mac_to_port[dst]
-
       log.debug("Installing flow...")
-      log.debug("From port: " + str(in_port) + " to port: " + str(out_port))
+      log.debug("From port: {} to port: {}".format(in_port, out_port))
       # Maybe the log statement should have source/destination/port?
       msg = of.ofp_flow_mod()
       
       # Set fields to match received packet
       msg.match = of.ofp_match.from_packet(packet)
+
+
+      # firewall
+      if (str(msg.match.nw_src) in self.blocked_srcs or str(msg.match.nw_dst) in self.blocked_dsts 
+        or msg.match.nw_proto == self.blocked_protocol):
+        log.debug("Ignoring packet")
+        return
+
       #< Set other fields of flow_mod (timeouts? buffer_id?) >
       msg.data = packet_in
       msg.match.in_port = in_port
@@ -174,17 +180,19 @@ def get_blocked_protocol():
   try:
     file = open("blocked_protocol", "r")
     line = file.readline().strip()
-    if line == "TCP" or line == "UDP":
-      protocol = line
+    if line == "TCP":
+      protocol = 6
+    elif line == "UDP":
+      protocol = 17
     else:
-      print("Invalid protocol: {}".format(line))
+      print("Protocol to be ignored by firewall should be TCP or UDP: {}".format(line))
   except:
     pass
   return protocol
 
 def get_blocked_ips(side):
   pattern = re.compile("^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$")
-  ips = []
+  ips = {}
   try:
     file = open("blocked_{}".format(side), "r")
     for line in file:
@@ -192,7 +200,7 @@ def get_blocked_ips(side):
       if not pattern.match(ip):
         print("Invalid IP address: {}".format(ip))
       else:
-        ips.append(ip)
+        ips[ip] = True
   except:
     pass
   return ips
