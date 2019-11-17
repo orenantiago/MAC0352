@@ -96,24 +96,26 @@ class Tutorial (object):
     #if port associated with the destination MAC of the packet is known:
     if dst in self.mac_to_port:
       # Send packet out the associated port
-      #self.resend_packet(packet_in, self.mac_to_port[dst])
+      # self.resend_packet(packet_in, self.mac_to_port[dst])
 
       # Once you have the above working, try pushing a flow entry
       # instead of resending the packet (comment out the above and
       # uncomment and complete the below.)
+      out_port = self.mac_to_port[dst]
 
       log.debug("Installing flow...")
+      log.debug("From port: " + str(in_port) + " to port: " + str(out_port))
       # Maybe the log statement should have source/destination/port?
-
       msg = of.ofp_flow_mod()
       
       # Set fields to match received packet
       msg.match = of.ofp_match.from_packet(packet)
-      
       #< Set other fields of flow_mod (timeouts? buffer_id?) >
-      
+      msg.data = packet_in
+      msg.match.in_port = in_port
       #< Add an output action, and send -- similar to resend_packet() >
-
+      msg.actions.append(of.ofp_action_output(port=out_port))
+      self.connection.send(msg)
     else:
       # Flood the packet out everything but the input port
       # This part looks familiar, right?
