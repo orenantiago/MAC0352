@@ -1,0 +1,18 @@
+Como passar as regras do firewall.py
+O firewall interpreta as regras a partir de quatro arquivos, que são:
+    
+    * blocked_protocol -> arquivo que contem o protocolo a ser ignorado. Nele deve
+    conter apenas uma linha com a palavra "TCP" ou "UDP".
+    * blocked_srcs -> arquivo que contem os ips de origem a serem ignorados. Cada linha
+    deve conter um ip.
+    * blocked_dsts -> arquivo que contem os ips de destino a serem ignorados. Segue a mesma
+    formatação que blocked_srcs.
+
+Os arquivos devem obrigatoriamente ter esses nomes e estarem no mesmo diretório que o arquivo
+"pox.py".
+
+Ou seja, se executarmos ./pox.py log.level firewall, os arquivos devem estar nesse mesmo 
+diretório.
+
+Obs.: O firewall também suporta a leitura de um arquivo chamado blocked_ports, que contém as
+portas a serem bloqueadas, mas não conseguimos implementar essa funcionalidade.
