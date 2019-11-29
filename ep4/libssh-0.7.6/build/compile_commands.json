@@ -1,0 +1,447 @@
+[
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/agent.c.o   -c /tmp/libssh-0.7.6/src/agent.c",
+  "file": "/tmp/libssh-0.7.6/src/agent.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/auth.c.o   -c /tmp/libssh-0.7.6/src/auth.c",
+  "file": "/tmp/libssh-0.7.6/src/auth.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/base64.c.o   -c /tmp/libssh-0.7.6/src/base64.c",
+  "file": "/tmp/libssh-0.7.6/src/base64.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/bignum.c.o   -c /tmp/libssh-0.7.6/src/bignum.c",
+  "file": "/tmp/libssh-0.7.6/src/bignum.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/buffer.c.o   -c /tmp/libssh-0.7.6/src/buffer.c",
+  "file": "/tmp/libssh-0.7.6/src/buffer.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/callbacks.c.o   -c /tmp/libssh-0.7.6/src/callbacks.c",
+  "file": "/tmp/libssh-0.7.6/src/callbacks.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/channels.c.o   -c /tmp/libssh-0.7.6/src/channels.c",
+  "file": "/tmp/libssh-0.7.6/src/channels.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/client.c.o   -c /tmp/libssh-0.7.6/src/client.c",
+  "file": "/tmp/libssh-0.7.6/src/client.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/config.c.o   -c /tmp/libssh-0.7.6/src/config.c",
+  "file": "/tmp/libssh-0.7.6/src/config.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/connect.c.o   -c /tmp/libssh-0.7.6/src/connect.c",
+  "file": "/tmp/libssh-0.7.6/src/connect.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/curve25519.c.o   -c /tmp/libssh-0.7.6/src/curve25519.c",
+  "file": "/tmp/libssh-0.7.6/src/curve25519.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/dh.c.o   -c /tmp/libssh-0.7.6/src/dh.c",
+  "file": "/tmp/libssh-0.7.6/src/dh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/ecdh.c.o   -c /tmp/libssh-0.7.6/src/ecdh.c",
+  "file": "/tmp/libssh-0.7.6/src/ecdh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/error.c.o   -c /tmp/libssh-0.7.6/src/error.c",
+  "file": "/tmp/libssh-0.7.6/src/error.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/getpass.c.o   -c /tmp/libssh-0.7.6/src/getpass.c",
+  "file": "/tmp/libssh-0.7.6/src/getpass.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/init.c.o   -c /tmp/libssh-0.7.6/src/init.c",
+  "file": "/tmp/libssh-0.7.6/src/init.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/kex.c.o   -c /tmp/libssh-0.7.6/src/kex.c",
+  "file": "/tmp/libssh-0.7.6/src/kex.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/known_hosts.c.o   -c /tmp/libssh-0.7.6/src/known_hosts.c",
+  "file": "/tmp/libssh-0.7.6/src/known_hosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/legacy.c.o   -c /tmp/libssh-0.7.6/src/legacy.c",
+  "file": "/tmp/libssh-0.7.6/src/legacy.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/log.c.o   -c /tmp/libssh-0.7.6/src/log.c",
+  "file": "/tmp/libssh-0.7.6/src/log.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/match.c.o   -c /tmp/libssh-0.7.6/src/match.c",
+  "file": "/tmp/libssh-0.7.6/src/match.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/messages.c.o   -c /tmp/libssh-0.7.6/src/messages.c",
+  "file": "/tmp/libssh-0.7.6/src/messages.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/misc.c.o   -c /tmp/libssh-0.7.6/src/misc.c",
+  "file": "/tmp/libssh-0.7.6/src/misc.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/options.c.o   -c /tmp/libssh-0.7.6/src/options.c",
+  "file": "/tmp/libssh-0.7.6/src/options.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/packet.c.o   -c /tmp/libssh-0.7.6/src/packet.c",
+  "file": "/tmp/libssh-0.7.6/src/packet.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/packet_cb.c.o   -c /tmp/libssh-0.7.6/src/packet_cb.c",
+  "file": "/tmp/libssh-0.7.6/src/packet_cb.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/packet_crypt.c.o   -c /tmp/libssh-0.7.6/src/packet_crypt.c",
+  "file": "/tmp/libssh-0.7.6/src/packet_crypt.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/pcap.c.o   -c /tmp/libssh-0.7.6/src/pcap.c",
+  "file": "/tmp/libssh-0.7.6/src/pcap.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/pki.c.o   -c /tmp/libssh-0.7.6/src/pki.c",
+  "file": "/tmp/libssh-0.7.6/src/pki.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/pki_container_openssh.c.o   -c /tmp/libssh-0.7.6/src/pki_container_openssh.c",
+  "file": "/tmp/libssh-0.7.6/src/pki_container_openssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/pki_ed25519.c.o   -c /tmp/libssh-0.7.6/src/pki_ed25519.c",
+  "file": "/tmp/libssh-0.7.6/src/pki_ed25519.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/poll.c.o   -c /tmp/libssh-0.7.6/src/poll.c",
+  "file": "/tmp/libssh-0.7.6/src/poll.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/session.c.o   -c /tmp/libssh-0.7.6/src/session.c",
+  "file": "/tmp/libssh-0.7.6/src/session.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/scp.c.o   -c /tmp/libssh-0.7.6/src/scp.c",
+  "file": "/tmp/libssh-0.7.6/src/scp.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/socket.c.o   -c /tmp/libssh-0.7.6/src/socket.c",
+  "file": "/tmp/libssh-0.7.6/src/socket.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/string.c.o   -c /tmp/libssh-0.7.6/src/string.c",
+  "file": "/tmp/libssh-0.7.6/src/string.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/threads.c.o   -c /tmp/libssh-0.7.6/src/threads.c",
+  "file": "/tmp/libssh-0.7.6/src/threads.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/wrapper.c.o   -c /tmp/libssh-0.7.6/src/wrapper.c",
+  "file": "/tmp/libssh-0.7.6/src/wrapper.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/bcrypt_pbkdf.c.o   -c /tmp/libssh-0.7.6/src/external/bcrypt_pbkdf.c",
+  "file": "/tmp/libssh-0.7.6/src/external/bcrypt_pbkdf.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/blowfish.c.o   -c /tmp/libssh-0.7.6/src/external/blowfish.c",
+  "file": "/tmp/libssh-0.7.6/src/external/blowfish.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/ed25519.c.o   -c /tmp/libssh-0.7.6/src/external/ed25519.c",
+  "file": "/tmp/libssh-0.7.6/src/external/ed25519.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/fe25519.c.o   -c /tmp/libssh-0.7.6/src/external/fe25519.c",
+  "file": "/tmp/libssh-0.7.6/src/external/fe25519.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/ge25519.c.o   -c /tmp/libssh-0.7.6/src/external/ge25519.c",
+  "file": "/tmp/libssh-0.7.6/src/external/ge25519.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/sc25519.c.o   -c /tmp/libssh-0.7.6/src/external/sc25519.c",
+  "file": "/tmp/libssh-0.7.6/src/external/sc25519.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/pki_crypto.c.o   -c /tmp/libssh-0.7.6/src/pki_crypto.c",
+  "file": "/tmp/libssh-0.7.6/src/pki_crypto.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/libcrypto.c.o   -c /tmp/libssh-0.7.6/src/libcrypto.c",
+  "file": "/tmp/libssh-0.7.6/src/libcrypto.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/libcrypto-compat.c.o   -c /tmp/libssh-0.7.6/src/libcrypto-compat.c",
+  "file": "/tmp/libssh-0.7.6/src/libcrypto-compat.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/sftp.c.o   -c /tmp/libssh-0.7.6/src/sftp.c",
+  "file": "/tmp/libssh-0.7.6/src/sftp.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/sftpserver.c.o   -c /tmp/libssh-0.7.6/src/sftpserver.c",
+  "file": "/tmp/libssh-0.7.6/src/sftpserver.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/server.c.o   -c /tmp/libssh-0.7.6/src/server.c",
+  "file": "/tmp/libssh-0.7.6/src/server.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/bind.c.o   -c /tmp/libssh-0.7.6/src/bind.c",
+  "file": "/tmp/libssh-0.7.6/src/bind.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/gzip.c.o   -c /tmp/libssh-0.7.6/src/gzip.c",
+  "file": "/tmp/libssh-0.7.6/src/gzip.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/gssapi.c.o   -c /tmp/libssh-0.7.6/src/gssapi.c",
+  "file": "/tmp/libssh-0.7.6/src/gssapi.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src -I/tmp/libssh-0.7.6/src -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -fvisibility=hidden -o CMakeFiles/ssh_shared.dir/external/curve25519_ref.c.o   -c /tmp/libssh-0.7.6/src/external/curve25519_ref.c",
+  "file": "/tmp/libssh-0.7.6/src/external/curve25519_ref.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/src/threads",
+  "command": "/usr/bin/cc  -DLIBSSH_EXPORTS  -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -fPIC -I/tmp/libssh-0.7.6/build/src/threads -I/tmp/libssh-0.7.6/src/threads -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build -I/tmp/libssh-0.7.6    -fvisibility=hidden -o CMakeFiles/ssh_threads_shared.dir/pthread.c.o   -c /tmp/libssh-0.7.6/src/threads/pthread.c",
+  "file": "/tmp/libssh-0.7.6/src/threads/pthread.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/exec.dir/exec.c.o   -c /tmp/libssh-0.7.6/examples/exec.c",
+  "file": "/tmp/libssh-0.7.6/examples/exec.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/exec.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/exec.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/exec.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/libssh_scp.dir/libssh_scp.c.o   -c /tmp/libssh-0.7.6/examples/libssh_scp.c",
+  "file": "/tmp/libssh-0.7.6/examples/libssh_scp.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/libssh_scp.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/libssh_scp.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/libssh_scp.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/c++    -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/libsshpp.dir/libsshpp.cpp.o -c /tmp/libssh-0.7.6/examples/libsshpp.cpp",
+  "file": "/tmp/libssh-0.7.6/examples/libsshpp.cpp"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/c++    -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/libsshpp_noexcept.dir/libsshpp_noexcept.cpp.o -c /tmp/libssh-0.7.6/examples/libsshpp_noexcept.cpp",
+  "file": "/tmp/libssh-0.7.6/examples/libsshpp_noexcept.cpp"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/proxy.dir/proxy.c.o   -c /tmp/libssh-0.7.6/examples/proxy.c",
+  "file": "/tmp/libssh-0.7.6/examples/proxy.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplesftp.dir/samplesftp.c.o   -c /tmp/libssh-0.7.6/examples/samplesftp.c",
+  "file": "/tmp/libssh-0.7.6/examples/samplesftp.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplesftp.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplesftp.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplesftp.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplessh.dir/sample.c.o   -c /tmp/libssh-0.7.6/examples/sample.c",
+  "file": "/tmp/libssh-0.7.6/examples/sample.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplessh.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplessh.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplessh.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplesshd-cb.dir/samplesshd-cb.c.o   -c /tmp/libssh-0.7.6/examples/samplesshd-cb.c",
+  "file": "/tmp/libssh-0.7.6/examples/samplesshd-cb.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/samplesshd-kbdint.dir/samplesshd-kbdint.c.o   -c /tmp/libssh-0.7.6/examples/samplesshd-kbdint.c",
+  "file": "/tmp/libssh-0.7.6/examples/samplesshd-kbdint.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/scp_download.dir/scp_download.c.o   -c /tmp/libssh-0.7.6/examples/scp_download.c",
+  "file": "/tmp/libssh-0.7.6/examples/scp_download.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/scp_download.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/scp_download.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/scp_download.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/senddata.dir/senddata.c.o   -c /tmp/libssh-0.7.6/examples/senddata.c",
+  "file": "/tmp/libssh-0.7.6/examples/senddata.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/senddata.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/senddata.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/senddata.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/ssh_server_fork.dir/ssh_server_fork.c.o   -c /tmp/libssh-0.7.6/examples/ssh_server_fork.c",
+  "file": "/tmp/libssh-0.7.6/examples/ssh_server_fork.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/sshnetcat.dir/sshnetcat.c.o   -c /tmp/libssh-0.7.6/examples/sshnetcat.c",
+  "file": "/tmp/libssh-0.7.6/examples/sshnetcat.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/sshnetcat.dir/authentication.c.o   -c /tmp/libssh-0.7.6/examples/authentication.c",
+  "file": "/tmp/libssh-0.7.6/examples/authentication.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/sshnetcat.dir/knownhosts.c.o   -c /tmp/libssh-0.7.6/examples/knownhosts.c",
+  "file": "/tmp/libssh-0.7.6/examples/knownhosts.c"
+},
+{
+  "directory": "/tmp/libssh-0.7.6/build/examples",
+  "command": "/usr/bin/cc    -std=gnu99 -pedantic -pedantic-errors -Wall -Wextra -Wshadow -Wmissing-prototypes -Wdeclaration-after-statement -Wunused -Wfloat-equal -Wpointer-arith -Wwrite-strings -Wformat-security -Wmissing-format-attribute -fPIC -fstack-protector -D_LARGEFILE64_SOURCE -g -I/tmp/libssh-0.7.6/build/examples -I/tmp/libssh-0.7.6/examples -I/tmp/libssh-0.7.6/include -I/tmp/libssh-0.7.6/build    -o CMakeFiles/sshnetcat.dir/connect_ssh.c.o   -c /tmp/libssh-0.7.6/examples/connect_ssh.c",
+  "file": "/tmp/libssh-0.7.6/examples/connect_ssh.c"
+}
+]

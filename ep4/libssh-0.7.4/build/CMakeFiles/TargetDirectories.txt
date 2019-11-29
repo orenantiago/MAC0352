@@ -1,0 +1,15 @@
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/exec.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/libssh_scp.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/libsshpp.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/libsshpp_noexcept.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/proxy.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/samplesftp.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/samplessh.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/samplesshd-cb.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/samplesshd-kbdint.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/scp_download.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/senddata.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/ssh_server_fork.dir
+/tmp/libssh-0.7.4/build/src/CMakeFiles/ssh_shared.dir
+/tmp/libssh-0.7.4/build/src/threads/CMakeFiles/ssh_threads_shared.dir
+/tmp/libssh-0.7.4/build/examples/CMakeFiles/sshnetcat.dir
